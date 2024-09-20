@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Real-Time UK Time</title>
+    <title>Real-Time London Time</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -31,26 +31,29 @@
 </head>
 <body>
     <div class="container">
-        <div class="location">London, Zoey</div> <!-- 这行是新增的文字 -->
-        <div class="clock" id="ukTime">Loading time...</div>
+        <!-- 固定文本显示伦敦 -->
+        <div class="location">London, Zoey</div>
+        <!-- 显示伦敦时间 -->
+        <div class="clock" id="londonTime">Loading time...</div>
     </div>
+
     <script>
-        function updateUKTime() {
+        function updateLondonTime() {
             // 获取当前时间
             const now = new Date();
-            // 获取UTC时间，并转换成英国时间
-            const options = { timeZone: 'Europe/London', hour12: false };
-            const timeInUK = now.toLocaleTimeString('en-GB', options);
+            // 获取UTC时间，并转换成伦敦时间
+            const optionsLondon = { timeZone: 'Europe/London', hour12: false };
+            const timeInLondon = now.toLocaleTimeString('en-GB', optionsLondon);
             
-            // 显示时间
-            document.getElementById('ukTime').textContent = timeInUK;
+            // 显示伦敦时间
+            document.getElementById('londonTime').textContent = timeInLondon;
         }
 
         // 每秒更新一次时间
-        setInterval(updateUKTime, 1000);
+        setInterval(updateLondonTime, 1000);
         
         // 初始加载时调用一次
-        updateUKTime();
+        updateLondonTime();
     </script>
 </body>
 </html>
