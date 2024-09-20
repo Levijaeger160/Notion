@@ -10,9 +10,18 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+        }
+        .location {
+            font-size: 36px; /* 保证字体一致 */
+            font-weight: bold; /* 与时钟字体样式相似 */
+            margin-bottom: 10px;
         }
         .clock {
             font-size: 48px;
@@ -21,8 +30,10 @@
     </style>
 </head>
 <body>
-    <div class="location">London, Zoey</div> <!-- 这行是新增的文字 -->
-    <div class="clock" id="ukTime">Loading time...</div>
+    <div class="container">
+        <div class="location">London, Zoey</div> <!-- 这行是新增的文字 -->
+        <div class="clock" id="ukTime">Loading time...</div>
+    </div>
     <script>
         function updateUKTime() {
             // 获取当前时间
