@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Days Since 2021-07-03</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .text {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .days {
+            font-size: 48px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- 第一行：显示<yesyseys> -->
+    <div class="text">We have been in love for</div>
+    <!-- 第二行：显示到2021年7月3日的天数 -->
+    <div class="days" id="daysPassed">Loading days...</div>
+
+    <script>
+        function calculateDays() {
+            // 目标日期：2021年7月3日
+            const targetDate = new Date('2021-07-03');
+            // 当前日期：今天
+            const currentDate = new Date();
+            
+            // 计算时间差（以毫秒为单位）
+            const timeDifference = currentDate - targetDate;
+            
+            // 将毫秒转换为天
+            const daysPassed = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            
+            // 更新页面上的天数
+            document.getElementById('daysPassed').textContent = `${daysPassed} days`;
+        }
+
+        // 初始加载时计算天数
+        calculateDays();
+    </script>
+</body>
+</html>
