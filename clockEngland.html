@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time UK Time</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .clock {
+            font-size: 48px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock" id="ukTime">Loading time...</div>
+
+    <script>
+        function updateUKTime() {
+            // 获取当前时间
+            const now = new Date();
+            // 获取UTC时间，并转换成英国时间
+            const options = { timeZone: 'Europe/London', hour12: false };
+            const timeInUK = now.toLocaleTimeString('en-GB', options);
+            
+            // 显示时间
+            document.getElementById('ukTime').textContent = timeInUK;
+        }
+
+        // 每秒更新一次时间
+        setInterval(updateUKTime, 1000);
+        
+        // 初始加载时调用一次
+        updateUKTime();
+    </script>
+</body>
+</html>
