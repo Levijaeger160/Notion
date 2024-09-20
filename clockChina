@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Beijing Time</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .location {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .clock {
+            font-size: 48px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- 北京时间 -->
+    <div class="location">Hangzhou, Alder</div>
+    <div class="clock" id="beijingTime">Loading time...</div>
+
+    <script>
+        function updateBeijingTime() {
+            // 获取当前时间
+            const now = new Date();
+            // 获取UTC时间，并转换成北京时间
+            const optionsBeijing = { timeZone: 'Asia/Shanghai', hour12: false };
+            const timeInBeijing = now.toLocaleTimeString('en-GB', optionsBeijing);
+            
+            // 显示北京时间
+            document.getElementById('beijingTime').textContent = timeInBeijing;
+        }
+
+        // 每秒更新一次时间
+        setInterval(updateBeijingTime, 1000);
+        
+        // 初始加载时调用一次
+        updateBeijingTime();
+    </script>
+</body>
+</html>
